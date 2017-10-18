@@ -30,5 +30,17 @@ public class Lesson_008 {
         //Читаем созданный текстовый файл
         FileReader fileReader = new FileReader(file + ":\\" + fileName);
         Scanner reader = new Scanner(fileReader);
+        //Выводим содержимое файла на экран
+        int i = 0;
+        System.out.print("\n");
+        System.out.println("Содержимое файла: ");
+            while (reader.hasNextLine()) {
+                System.out.println(i + "-я строка: " + reader.nextLine());
+                i++;
+            }
+        //Удаляем 3-ю строку
+        System.out.print("\n");
+        System.out.println("Измененный файл: ");
+        for 
     }
 }
