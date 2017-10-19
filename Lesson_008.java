@@ -1,6 +1,9 @@
 package Lesson;
 import java.io.*;
 import java.util.*;
+
+import static java.awt.SystemColor.text;
+
 /*
 Имеется текстовый файл. Удалить из него третью строку. Результат записать в другой файл.
  */
@@ -18,29 +21,48 @@ public class Lesson_008 {
         //Заполняем строки текстового файла
         FileWriter fileWriter = new FileWriter(file + ":\\" + fileName);
                 for (int i = 0; i < k; i++) {
-                    System.out.print("Введите количество цифр в [" + i + "] строке: ");
-                    int n = scn.nextInt();
-                   for (int j = 0; j < n; j++) {
+                   for (int j = 0; j < (rnd.nextInt(10) + 1); j++) {
                        fileWriter.write((rnd.nextInt(20) + 1) + " ");
                    }
                    fileWriter.write("\n");
                 }
         fileWriter.close();
 
-        //Читаем созданный текстовый файл
+        //Читаем созданный текстовый файл и заносим его в ArrayList
         FileReader fileReader = new FileReader(file + ":\\" + fileName);
         Scanner reader = new Scanner(fileReader);
-        //Выводим содержимое файла на экран
         int i = 0;
         System.out.print("\n");
         System.out.println("Содержимое файла: ");
+        ArrayList<String> array = new ArrayList<>();
             while (reader.hasNextLine()) {
-                System.out.println(i + "-я строка: " + reader.nextLine());
+                array.add(reader.nextLine());
+                System.out.println(i + "-я строка: " + array.get(i));
                 i++;
             }
-        //Удаляем 3-ю строку
+        //Удаляем 3-ю строку и выводим измененный ArrayList
         System.out.print("\n");
-        System.out.println("Измененный файл: ");
-        for
+        System.out.print("Измененый файл: \n");
+            for (i = 0; i < array.size(); i++) {
+                if (i == 2) {
+                    array.remove(2);
+                }
+                System.out.println(i + "-я строка: " + array.get(i));
+            }
+        System.out.print("\n");
+        fileReader.close();
+
+        //Создаем новый текстовый файл и заносим в него измененный ArrayList
+        System.out.print("Введите диск куда сохранить новый текстовый файл: ");
+        String fileDisc = scn.nextLine();
+        System.out.print("Введите название нового текстового файла с расширением: ");
+        String filename = scn.nextLine();
+        FileWriter fileWriter1 = new FileWriter(fileDisc + ":\\" + filename);
+            for (i = 0; i < array.size(); i++) {
+                fileWriter1.write(array.get(i));
+                fileWriter1.write("\n");
+            }
+        System.out.print("Файл сохранен");
+        fileWriter1.close();
     }
 }
