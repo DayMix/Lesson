@@ -30,17 +30,32 @@ public class Lesson_008 {
         //Читаем созданный текстовый файл
         FileReader fileReader = new FileReader(file + ":\\" + fileName);
         Scanner reader = new Scanner(fileReader);
-        //Выводим содержимое файла на экран
         int i = 0;
         System.out.print("\n");
         System.out.println("Содержимое файла: ");
+        //Заносим содержимое файла в ArrayList
+        ArrayList<String> array = new ArrayList<>();
             while (reader.hasNextLine()) {
-                System.out.println(i + "-я строка: " + reader.nextLine());
+                array.add(reader.nextLine());
+                System.out.println(i + "-я строка: " + array.get(i));
                 i++;
             }
-        //Удаляем 3-ю строку
+        //Удаляем 3-ю строку и выводим измененный ArrayList
         System.out.print("\n");
-        System.out.println("Измененный файл: ");
-        for 
+        System.out.print("Измененый файл: \n");
+            for (i = 0; i < array.size(); i++) {
+                if (i == 2) {
+                    array.remove(2);
+                }
+                System.out.println(i + "-я строка: " + array.get(i));
+            }
+        fileReader.close();
+
+        //Создаем новый текстовый файл и заносим в него измененный ArrayList
+        System.out.print("Введите диск куда сохранить новый текстовый файл: ");
+        String file1 = scn.nextLine();
+        System.out.print("Введите название нового текстового файла с расширением: ");
+        String fileName1 = scn.nextLine();
+        FileWriter fileWriter1 = new FileWriter(file1 + ":\\" + fileName1);
     }
 }
