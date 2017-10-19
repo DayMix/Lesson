@@ -41,6 +41,6 @@ public class Lesson_008 {
         //Удаляем 3-ю строку
         System.out.print("\n");
         System.out.println("Измененный файл: ");
-        for 
+        for
     }
 }
