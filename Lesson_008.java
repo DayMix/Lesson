@@ -1,9 +1,6 @@
 package Lesson;
 import java.io.*;
 import java.util.*;
-
-import static java.awt.SystemColor.text;
-
 /*
 Имеется текстовый файл. Удалить из него третью строку. Результат записать в другой файл.
  */
