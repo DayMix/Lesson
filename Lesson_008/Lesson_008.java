@@ -50,11 +50,9 @@ public class Lesson_008 {
         fileReader.close();
 
         //Создаем новый текстовый файл и заносим в него измененный ArrayList
-        System.out.print("Введите диск куда сохранить новый текстовый файл: ");
-        String fileDisc = scn.nextLine();
         System.out.print("Введите название нового текстового файла с расширением: ");
         String filename = scn.nextLine();
-        FileWriter fileWriter1 = new FileWriter(fileDisc + ":\\" + filename);
+        FileWriter fileWriter1 = new FileWriter(file + ":\\" + filename);
             for (i = 0; i < array.size(); i++) {
                 fileWriter1.write(array.get(i));
                 fileWriter1.write("\n");
